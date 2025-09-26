@@ -464,6 +464,22 @@
           grid-template-columns: 1fr 1fr;
         }
       }
+
+      /* --- START: ADDED CODE FOR FIX --- */
+      @media (max-width: 420px) {
+        .topbar .logo {
+          font-size: 22px; /* Slightly smaller logo */
+        }
+        .topbar .nav-buttons {
+          gap: 2px; /* Reduce the gap between buttons */
+        }
+        .topbar .nav-buttons button {
+          padding: 6px 8px; /* Reduce button padding */
+          font-size: 14px; /* Make font slightly smaller */
+        }
+      }
+      /* --- END: ADDED CODE FOR FIX --- */
+
     </style>
   </head>
   <body>
@@ -486,7 +502,7 @@
           <p class="subtitle">
             Your personalized agricultural advisory dashboard
           </p>
-          <p class="date">Wednesday, September 3</p>
+          <p class="date">Friday, September 26</p>
         </div>
         <div class="header-actions">
           <button class="icon-btn"><i data-lucide="bell"></i></button>
@@ -663,7 +679,7 @@
 
     <script>
       const API_KEY = "b09b7ce916c2ae01a2510268790536d4";
-      const CITY = "Siliguri";
+      const CITY = "Jalpaiguri"; // Updated City
       async function fetchWeather() {
         try {
           const url = `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`;
@@ -739,3 +755,4 @@
     </script>
   </body>
 </html>
+
