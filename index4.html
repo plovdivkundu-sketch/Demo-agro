@@ -481,6 +481,258 @@
       }
       /* --- END: ADDED CODE FOR FIX --- */
 
+      /* Sidebar Styles */
+.sheet {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  max-width: 90%;
+  height: 100%;
+  background: linear-gradient(to bottom, #f0fdf4, #fff);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  z-index: 2000;
+  overflow-y: auto;
+  touch-action: pan-y;
+}
+
+.sheet.open {
+  right: 0;
+}
+
+/* Swipe indicator */
+.swipe-indicator {
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 6px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transform: translateY(-50%);
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .swipe-indicator {
+    display: block;
+  }
+}
+
+/* Header */
+.sheet-header {
+  background: linear-gradient(to right, #16a34a, #059669);
+  padding: 20px;
+  color: white;
+}
+
+.sheet-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.sheet-header p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #bbf7d0;
+}
+
+/* Profile Section */
+.profile-card {
+  background: linear-gradient(to right, #dcfce7, #d1fae5);
+  margin: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #bbf7d0;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: white;
+  margin-right: 16px;
+}
+
+.profile-info h3 {
+  margin: 0;
+  font-weight: 600;
+  color: #14532d;
+}
+
+.profile-info p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #15803d;
+}
+
+/* Menu Items */
+.menu {
+  margin: 0 20px;
+}
+
+.menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu button:hover {
+  background: #f0fdf4;
+}
+
+.menu-icon {
+  background: #dcfce7;
+  padding: 8px;
+  border-radius: 8px;
+  margin-right: 12px;
+  color: #16a34a;
+}
+
+.menu-text h4 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  color: #111827;
+}
+
+.menu-text p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.chevron {
+  margin-left: auto;
+  color: #9ca3af;
+}
+
+/* Separator */
+.separator {
+  margin: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Notifications */
+.notification-section {
+  margin: 0 20px 20px;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid #f3f4f6;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.notification-icon {
+  padding: 6px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-text p {
+  margin: 0;
+  font-size: 13px;
+  color: #111827;
+  font-weight: 500;
+}
+
+.notification-text span {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #d1d5db;
+  transition: .2s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; width: 16px;
+  left: 2px; bottom: 2px;
+  background-color: white;
+  transition: .2s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #16a34a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* App Info */
+.app-info {
+  margin: 0 20px 20px;
+  background: linear-gradient(to right, #eff6ff, #eef2ff);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #dbeafe;
+  text-align: center;
+}
+
+.app-info h4 {
+  margin: 6px 0;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.app-info p {
+  margin: 2px 0;
+  font-size: 11px;
+  color: #2563eb;
+}
+
+
     </style>
   </head>
   <body>
@@ -679,6 +931,94 @@
       </main>
     </div>
 
+    <!-- Sidebar -->
+<div class="sheet" id="settingsSheet">
+  <div class="swipe-indicator"></div>
+  <!-- Header -->
+  <div class="sheet-header">
+    <h2>Settings</h2>
+    <p>Manage your preferences</p>
+  </div>
+
+  <!-- Profile -->
+  <div class="profile-card">
+    <div class="profile-avatar">R</div>
+    <div class="profile-info">
+      <h3>Ram Kumar</h3>
+      <p><i data-lucide="map-pin" style="width:12px;height:12px"></i> Ludhiana, Punjab</p>
+      <p>👨‍🌾 Profile</p>
+    </div>
+    <i data-lucide="chevron-right" class="chevron"></i>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu">
+    <button>
+      <div class="menu-icon"><i data-lucide="user"></i></div>
+      <div class="menu-text"><h4>Profile</h4><p>Update your information</p></div>
+      <i data-lucide="chevron-right" class="chevron"></i>
+    </button>
+    <button>
+      <div class="menu-icon"><i data-lucide="globe"></i></div>
+      <div class="menu-text"><h4>Language</h4><p>Change app language</p></div>
+      <i data-lucide="chevron-right" class="chevron"></i>
+    </button>
+    <button>
+      <div class="menu-icon"><i data-lucide="shield"></i></div>
+      <div class="menu-text"><h4>Privacy</h4><p>Manage your data</p></div>
+      <i data-lucide="chevron-right" class="chevron"></i>
+    </button>
+    <button>
+      <div class="menu-icon"><i data-lucide="help-circle"></i></div>
+      <div class="menu-text"><h4>Help</h4><p>Get support</p></div>
+      <i data-lucide="chevron-right" class="chevron"></i>
+    </button>
+    <button>
+      <div class="menu-icon"><i data-lucide="info"></i></div>
+      <div class="menu-text"><h4>About Us</h4><p>App information</p></div>
+      <i data-lucide="chevron-right" class="chevron"></i>
+    </button>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Notifications -->
+  <div class="notification-section">
+    <div class="notification-item">
+      <div class="notification-icon" style="background:#dbeafe"><i data-lucide="cloud" style="color:#2563eb"></i></div>
+      <div class="notification-text"><p>Weather Alerts</p><span>Get weather information</span></div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <div class="notification-item">
+      <div class="notification-icon" style="background:#fee2e2"><i data-lucide="bug" style="color:#dc2626"></i></div>
+      <div class="notification-text"><p>Crop Disease Alerts</p><span>Disease identification info</span></div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+
+    <div class="notification-item">
+      <div class="notification-icon" style="background:#dcfce7"><i data-lucide="dollar-sign" style="color:#16a34a"></i></div>
+      <div class="notification-text"><p>Market Price Updates</p><span>Get new prices</span></div>
+      <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+    </div>
+
+    <div class="notification-item">
+      <div class="notification-icon" style="background:#fef9c3"><i data-lucide="lightbulb" style="color:#ca8a04"></i></div>
+      <div class="notification-text"><p>Advice Tips</p><span>Get farming advice</span></div>
+      <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+    </div>
+  </div>
+
+  <!-- App Info -->
+  <div class="app-info">
+    <div style="font-size:22px;">🌾</div>
+    <h4>Agro Suvidha</h4>
+    <p>Version 1.0.0</p>
+    <p>AI-Powered Agricultural Advisory</p>
+  </div>
+</div>
+
+
     <div class="footer">Made or Created by Team BLACK SYNTEX</div>
 
     <script>
@@ -756,8 +1096,94 @@
             .catch((err) => console.log(`Service Worker: Error: ${err}`));
         });
       }
+
+      document.addEventListener('DOMContentLoaded', () => {
+  const sheet = document.getElementById("settingsSheet");
+  const settingsBtn = document.getElementById("settingsBtn");
+  const overlay = document.getElementById("overlay");
+  const dashboard = document.getElementById("dashboard");
+
+  let startX = 0;
+  let currentX = 0;
+  let isSwiping = false;
+  let sidebarOpen = false;
+
+  const openSidebar = () => {
+    sheet.classList.add("open");
+    overlay.classList.add("active");
+    dashboard.style.transform = "translateX(-50px)";
+    sidebarOpen = true;
+  };
+
+  const closeSidebar = () => {
+    sheet.classList.remove("open");
+    overlay.classList.remove("active");
+    dashboard.style.transform = "translateX(0)";
+    sidebarOpen = false;
+  };
+
+  const toggleSidebar = () => {
+    if (sidebarOpen) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  };
+
+  // Open sidebar on button click
+  settingsBtn.addEventListener("click", toggleSidebar);
+
+  // Close sidebar when clicking outside
+  overlay.addEventListener("click", closeSidebar);
+
+  // Touch events for swipe-to-close
+  sheet.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    currentX = startX;
+    isSwiping = true;
+  });
+
+  sheet.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
+
+    currentX = e.touches[0].clientX;
+    const diff = startX - currentX;
+
+    // Only allow swiping to close
+    if (sidebarOpen && diff > 0) {
+      e.preventDefault();
+      const translateX = Math.min(0, -diff);
+      sheet.style.transform = `translateX(${translateX}px)`;
+    }
+  });
+
+  sheet.addEventListener('touchend', () => {
+    if (!isSwiping) return;
+
+    const diff = startX - currentX;
+    const threshold = 50;
+
+    if (sidebarOpen && diff > threshold) {
+      closeSidebar();
+    } else {
+      // Reset position if swipe wasn't enough
+      sheet.style.transform = 'translateX(0)';
+    }
+
+    isSwiping = false;
+    sheet.style.transform = '';
+  });
+
+  // Prevent page scrolling when sidebar is open
+  document.addEventListener('touchmove', (e) => {
+    if (sidebarOpen) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+});
     </script>
   </body>
 </html>
+
 
 
